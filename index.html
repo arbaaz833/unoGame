@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="comArea">comp area</div>
+
+      <div id="remDeck">
+        <button onclick="uno(this)" id="unoButton" class="unoButton">
+          UNO
+        </button>
+        <button onclick="computerRes()" id="turnButton">
+          Proceed<span style="font-size: 1rem" class="material-icons arrow"
+            >chevron_right</span
+          >
+        </button>
+        <div class="card-img" id="remCards">
+          <img class="card-img" src="./unoCardsImages/UNO-Back.jpg" />
+        </div>
+        <div class="card-img" id="currCard"></div>
+        <div id="color" class="currColorDiv"></div>
+      </div>
+
+      <div id="playerArea">player area</div>
+    </div>
+
+    <div class="chooseColorContainer">
+      <div class="colorBox"></div>
+    </div>
+
+    <div class="winningScreen">
+      <div class="winnerCard"></div>
+    </div>
+    <script src="./cardsData.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

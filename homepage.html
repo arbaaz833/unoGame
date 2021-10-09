@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./homepage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>UNO GAME</h1>
+    <div class="menu">
+      <div
+        onclick="document.getElementById('shadowDrop').style.display='block';"
+        class="playButton"
+      >
+        LET'S PLAY UNO
+      </div>
+      <div class="instruction playButton">INSTRUCTION</div>
+    </div>
+    <div id="shadowDrop" class="shadow">
+      <div class="scoreContainer">
+        <h3><u>PLEASE SELECT SCORE TO WIN</u></h3>
+        <form onsubmit="getScoreValue(event)" class="scoreForm" action="">
+          <div id="radioContainer">
+            <input type="radio" name="score" id="scoreRadio1" value="150" />
+            <label for="scoreRadio1">150</label>
+            <input type="radio" name="score" id="scoreRadio2" value="250" />
+            <label for="scoreRadio2">250</label>
+            <input type="radio" name="score" id="scoreRadio3" value="350" />
+            <label for="scoreRadio3">350</label>
+            <input type="radio" name="score" id="scoreRadio4" value="500" />
+            <label for="scoreRadio4">500</label>
+          </div>
+          <hr />
+          <h3>OR</h3>
+          <h3>INPUT YOUR CUSTOM SCORE:</h3>
+          <input type="text" name="customScore" id="customScore" />
+          <small></small>
+          <button class="scoreFormSubmit" type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="./homepageScript.js"></script>
+</html>

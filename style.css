@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("./unoCardsImages/background.jpg ");
+  font-family: "Bungee Shade", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#game-container > div {
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#remDeck {
+  flex: 1;
+}
+
+.card-container {
+  display: inline-block;
+}
+
+.card-img {
+  display: inline-block;
+  width: 6rem;
+  height: 8rem;
+  margin-left: 1px;
+}
+.chooseColorContainer,
+.winningScreen {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  display: none;
+}
+
+.colorBox,
+.winnerCard {
+  margin: auto;
+  margin-top: 10rem;
+  min-width: 30%;
+  min-height: 50%;
+  background: linear-gradient(35deg, #cf07b5, #ffcccc);
+  border-radius: 2rem;
+  color: black;
+  font-family: "Bungee Shade", sans-serif;
+  font-size: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.colorBox h2 {
+  margin: -0.5rem;
+  margin-bottom: 0px;
+}
+
+.colorGrid {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-columns: 4rem 4rem;
+  grid-template-rows: 4rem 4rem;
+  grid-gap: 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.colorGrid div {
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.red {
+  background-color: #d40000;
+}
+.yellow {
+  background-color: #ffcc00;
+}
+.blue {
+  background-color: #2a7ffe;
+}
+.green {
+  background-color: #2c9f5a;
+}
+
+.currColorDiv {
+  width: 70px;
+  height: 70px;
+  background-color: green;
+  border-radius: 50%;
+  margin-left: 1rem;
+  border: 2px groove black;
+}
+
+.colorGrid div:hover {
+  transform: translateY(-5px) scale(1.1);
+  border: 1px solid;
+}
+
+#turnButton,
+.unoButton {
+  display: none;
+  min-width: 6rem;
+  margin-right: 5px;
+  min-height: 2rem;
+  background: linear-gradient(45deg, purple, blue);
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: "Bungee Shade", sans-serif;
+}
+
+#unoButton {
+  font-family: "Alfa Slab One", sans-serif;
+  min-width: 6rem;
+  min-height: 6rem;
+  background: linear-gradient(35deg, red, yellow, orange, red);
+  font-size: larger;
+  color: black;
+  animation-name: unoButton;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+}
+.playAgainButton {
+  min-width: 6rem;
+  min-height: 2rem;
+  background: linear-gradient(45deg, purple, blue);
+  text-align: center;
+  color: white;
+  font-family: "Bungee Shade", sans-serif;
+  border-radius: 10px;
+}
+
+.arrow {
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  animation-name: arrowAnimation;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+@keyframes arrowAnimation {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 3px;
+  }
+  100% {
+    left: -3px;
+  }
+}
+
+@keyframes unoButton {
+  0% {
+    box-shadow: 0px -2px 3px 2px gold;
+  }
+  50% {
+    box-shadow: 2px 0px 3px 2px gold;
+  }
+  75% {
+    box-shadow: 0px 2px 3px 2px gold;
+  }
+  100% {
+    box-shadow: -2px 0px 3px 2px gold;
+  }
+}

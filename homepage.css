@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("./unoCardsImages/background.jpg ");
+  font-family: "Bungee Shade", sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.playButton {
+  min-width: 6rem;
+  min-height: 2rem;
+  background: linear-gradient(45deg, purple, blue);
+  text-align: center;
+  color: white;
+  font-family: "Bungee Shade", sans-serif;
+  border-radius: 10px;
+  margin-left: 2rem;
+  padding: 8px;
+  cursor: pointer;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.scoreContainer {
+  margin: auto;
+  margin-top: 6rem;
+  width: 30%;
+  height: auto;
+  background: linear-gradient(35deg, #cf07b5, #ffcccc);
+  border-radius: 2rem;
+  color: black;
+  font-family: "Bungee Shade", sans-serif;
+  font-size: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+.scoreForm {
+  text-align: center;
+}
+
+.scoreForm input[type="radio"] {
+  display: none;
+}
+
+.scoreForm input + label {
+  margin-left: 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 2px solid;
+  font-size: 1rem;
+  font-family: "Bungee Shade", sans-serif;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.scoreForm input:checked + label {
+  background: linear-gradient(35deg, purple, blue);
+}
+
+.scoreForm input:hover + label:hover {
+  background-color: rgba(128, 128, 128, 0.473);
+  transform: translateY(-3px) scale(1.1);
+  cursor: pointer;
+}
+
+.scoreFormSubmit {
+  min-width: 2rem;
+  min-height: 1rem;
+  margin-top: 5px;
+  background: linear-gradient(45deg, purple, blue);
+  text-align: center;
+  color: white;
+  font-family: "Bungee Shade", sans-serif;
+  border-radius: 5px;
+}
+
+.scoreForm input[type="text"] {
+  margin-top: 5px;
+  width: 80%;
+  height: 2rem;
+  background-color: rgba(128, 128, 128, 0.37);
+  border-radius: 7px;
+  border: 2px solid;
+  font-size: 1rem;
+}
+small {
+  display: block;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: underline;
+}
