@@ -17,7 +17,7 @@ function setScoreValue() {
     scoreStr += queryStr[i];
   }
   value = parseInt(scoreStr, 10);
-  console.log(value);
+  document.querySelector(".winningScreen").style.display = "none";
   distributeCards();
 }
 
@@ -34,28 +34,31 @@ function uno(button) {
 
 function winner(name) {
   let card = document.querySelector(".winnerCard");
+
   if (comScore >= value || playerScore >= value) {
     if (comScore >= value) {
       card.innerHTML = `
       <h1>COMPUTER WINS</h1>
-      <h2>PLAYER SCORE:${playerScore}</h2><h2 style="display:inline-block;margin-left:5px;">COMPUTER SCORE:${comScore}</h2>
-      <button onclick="distributeCards();" class="playAgainButton">PLAY AGAIN</button>
+      <p>PLAYER SCORE:${playerScore}</p>
+      <p>COMPUTER SCORE:${comScore}</p>
+      <button onclick="window.location.replace('./homepage.html?score');" class="playAgainButton">PLAY AGAIN</button>
       `;
     }
     if (playerScore >= value) {
       card.innerHTML = `
       <h1>PLAYER WINS</h1><hr>
-      <h2>PLAYER SCORE:${playerScore}</h2><h2 style="display:inline-block;margin-left:5px;">COMPUTER SCORE:${comScore}</h2>
-      <button onclick="window.location.reload(); distributeCards()" class="playAgainButton">PLAY AGAIN</button>
+      <p>PLAYER SCORE:${playerScore}</p>
+      <p>COMPUTER SCORE:${comScore}</p>
+      <button onclick="window.location.replace('./homepage.html?score');" class="playAgainButton">PLAY AGAIN</button>
       `;
     }
   } else {
     card.innerHTML = `
     <h2>${name} WINS THIS ROUND</h2>
-    <h4>COMPUTER SCORE:${comScore}</h4>
-    <h4 style="display:inline-block;margin-left:5px;">PLAYER SCORE:${playerScore}</h4>
+    <p>COMPUTER SCORE:${comScore}<p>
+    <p>PLAYER SCORE:${playerScore}</p>
     <button onclick="playAgain()" class="playAgainButton">CONTINUE</button>
-    <button onclick="window.location.replace("./homepage.html")" class="playAgainButton">QUIT</button>
+    <button onclick="window.location.replace('./homepage.html');" class="playAgainButton">QUIT</button>
     `;
   }
   card.parentElement.style.display = "block";
@@ -101,7 +104,7 @@ function chooseColorCom(player) {
     console.log("called from chooseColorCom");
     computerRes();
   } else {
-    playerRes();
+    playerRes(undefined, "true");
   }
 }
 
@@ -231,8 +234,9 @@ function getCard(caller = "player") {
 
 //to get the computer response
 function computerRes(state = "notTaken") {
-  document.getElementById("comArea").style.border = "1px solid";
-  document.getElementById("playerArea").style.border = "none";
+  let comDiv = document.getElementById("comArea");
+  comDiv.style.animationName = "indicator";
+  document.getElementById("playerArea").style.animationName = "none";
   document.getElementById("turnButton").style.display = "none";
   setTimeout(() => {
     let playableCards = [],
@@ -365,14 +369,22 @@ function computerRes(state = "notTaken") {
       ///checking card and assigning turn to the right player
       checkCurrCard("com");
     } else {
-      playerRes();
+      playerRes(undefined, "true");
     }
   }, 2000);
 }
 
-function playerRes(state = "notTaken") {
-  document.getElementById("comArea").style.border = "none";
-  document.getElementById("playerArea").style.border = "1px solid";
+function playerRes(state = "notTaken", playAudio = "false") {
+  document.getElementById("comArea").style.animationName = "none";
+  document.getElementById("playerArea").style.animationName = "indicator";
+  if (playAudio === "true") {
+    let sound = document.getElementById("audio");
+    sound.play();
+    setTimeout(() => {
+      sound.pause();
+      sound.currentTime = 00;
+    }, 1000);
+  }
   let playableCards = [];
   if (currCard[0].color !== "Black") {
     playableCards = playerDeck.filter((ele) => {
@@ -541,7 +553,7 @@ function checkCurrCard(caller) {
   else {
     console.log({ caller });
     if (caller === "com") {
-      playerRes();
+      playerRes(undefined, "true");
     } else {
       console.log("called from normal cards");
       computerRes();
@@ -549,4 +561,7 @@ function checkCurrCard(caller) {
   }
 }
 
-setScoreValue();
+document.querySelector(".winnerCard").innerHTML = `
+<button onclick="setScoreValue();" style="margin-top:7rem;min-width:9rem;min-height:3rem;" class="playAgainButton">START GAME</button>
+`;
+document.querySelector(".winnerCard").parentElement.style.display = "block";
