@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url("./unoCardsImages/background.jpg ");
+  background: linear-gradient(45deg, rgba(195,34,124,1) 0%, rgba(94,10,149,1) 100%);
   font-family: "Bungee Shade", sans-serif;
 }
 
