@@ -1,7 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(45deg, rgba(195,34,124,1) 0%, rgba(94,10,149,1) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(195, 34, 124, 1) 0%,
+    rgba(94, 10, 149, 1) 100%
+  );
   font-family: "Bungee Shade", sans-serif;
 }
 
@@ -114,4 +118,23 @@ small {
 .scoreForm input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media screen and (max-height: 450px) {
+  .scoreContainer {
+    margin: auto;
+    margin-top: 1rem;
+    width: 54%;
+    height: 80%;
+    background: linear-gradient(35deg, #cf07b5, #ffcccc);
+    border-radius: 2rem;
+    color: black;
+    font-family: "Bungee Shade", sans-serif;
+    font-size: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .scoreContainer h3 {
+    margin: 0 0;
+  }
 }

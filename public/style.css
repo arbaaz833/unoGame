@@ -43,6 +43,7 @@ body {
   border-radius: 10px;
   border: 2px groove;
 }
+
 .chooseColorContainer,
 .winningScreen {
   position: absolute;
@@ -223,5 +224,29 @@ audio {
   }
   100% {
     box-shadow: 0px 0px 10px 13px gold;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .card-img {
+    width: 4rem;
+    height: 5rem;
+  }
+  .card-container {
+    height: 5rem;
+  }
+  .colorBox,
+  .winnerCard {
+    margin-top: 1rem;
+  }
+
+  .currColorDiv {
+    width: 50px;
+    height: 50px;
+  }
+  #unoButton {
+    min-width: 4rem;
+    min-height: 4rem;
+    font-size: small;
   }
 }
