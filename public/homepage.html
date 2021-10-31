@@ -31,8 +31,32 @@
       >
         LET'S PLAY UNO
       </div>
-      <div class="instruction playButton">INSTRUCTION</div>
+      <div onclick="document.getElementById('instructionManual').style.display='block';" class="playButton">INSTRUCTION</div>
     </div>
+
+    <div id="instructionManual" class="shadow">
+      <div class="styleForIns scoreContainer">
+        <h3><u>HOW TO PLAY UNO</u></h3>
+        <P>There are various strategies you can use to maximize your chances of winning at Uno. The main principle is to get rid of all your cards before everyone else. You can do that by matching the color or number of the card placed down before yours. If you don't have a playable card, you must draw a card from the pile,now its upto you either play your turn or give turn to other player.When you have one card left, press the "UNO" button, otherwise you will be punished with two penalty cards</P>
+        <h3><u>NUMBER CARDS</u></h3>
+        <P>There are 108 cards in total. Number cards make up 70% of the total deck, with four colors each containing 19 cards. The cards span from numbers 0-9. As for the quantity of each card, there is one zero card, and two of every other number. The remaining 30% of cards are called action cards and wild cards.</P>
+        <H3><U>ACTION CARDS</U></H3>
+        <P>Action cards add an extra level of strategy to Uno. There are three action card types in an Uno deck. There are two of each action card in each color. These are:</P>
+        <ul>
+          <li>Skip card - the next player in the sequence misses a turn.</li>
+          <li>Reverse - reverses the direction of play</li>
+          <li>Draw two - the next player draws two cards and misses one turn.</li>
+        </ul>
+        <H3><U>WILD CARDS</U></H3>
+        <P>There are two types of wild card with four of each one. They are:</P>
+        <ul>
+          <li>Wild - lets the player choose what color to play.</li>
+          <li>Wild draw 4 - declare the next color to match, and force the next player to draw four cards and next player looses turn.</li>
+        </ul>
+        <button onclick="document.getElementById('instructionManual').style.display='none';" class="playButton">BACK</button>
+      </div>
+    </div>
+    
     <div id="shadowDrop" class="shadow">
       <div class="scoreContainer">
         <h3><u>PLEASE SELECT SCORE TO WIN</u></h3>

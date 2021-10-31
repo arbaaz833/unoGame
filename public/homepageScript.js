@@ -38,6 +38,6 @@ function getScoreValue(e) {
 }
 
 if (window.location.search) {
-  let scoreCard = document.querySelector(".shadow");
+  let scoreCard = document.getElementById('shadowDrop');
   scoreCard.style.display = "block";
 }

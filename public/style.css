@@ -21,14 +21,14 @@ body {
 
 #game-container > div {
   display: flex;
-  overflow: auto;
+  overflow-x: auto;
   align-items: center;
-  justify-content: center;
   padding: 0.5rem;
 }
 
 #remDeck {
   flex: 1;
+  justify-content: center;
 }
 
 .card-container {

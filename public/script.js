@@ -182,18 +182,38 @@ function distributeCards() {
 function playerView() {
   let container = document.getElementById("playerArea");
   let html = "";
-  playerDeck.forEach((card) => {
+  playerDeck.forEach((card, ind) => {
     let src;
     if (card.hasOwnProperty("number")) {
       src = `./unoCardsImages/${card.color}_${card.number}.jpg`;
     } else if (card.hasOwnProperty("type")) {
       src = `./unoCardsImages/${card.color}_${card.type}.jpg`;
     }
-    html += `
-    <div class="card-container" >
-      <img  class="card-img" src="${src}" />
-    </div>
-  `;
+    if (playerDeck.length == 1) {
+      html += `
+      <div style="margin-left:auto; margin-right:auto;" class="card-container" >
+        <img  class="card-img" src="${src}" />
+      </div>
+    `;
+    } else if (ind == 0) {
+      html += `
+      <div style="margin-left:auto;" class="card-container" >
+        <img  class="card-img" src="${src}" />
+      </div>
+    `;
+    } else if (ind == playerDeck.length - 1) {
+      html += `
+      <div style="margin-right:auto;" class="card-container" >
+        <img  class="card-img" src="${src}" />
+      </div>
+    `;
+    } else {
+      html += `
+      <div class="card-container" >
+        <img  class="card-img" src="${src}" />
+      </div>
+    `;
+    }
   });
   container.innerHTML = html;
 }
@@ -201,11 +221,28 @@ function playerView() {
 function comView() {
   let container = document.getElementById("comArea");
   let html = "";
-  comDeck.forEach((card) => {
-    html += `
-    <div class="card-container" >
+  comDeck.forEach((card, index) => {
+    if (comDeck.length == 1) {
+      html += `
+    <div style="margin-left:auto;margin-right:auto" class="card-container" >
       <img  class="card-img" src="./unoCardsImages/UNO-Back.jpg"/>
     </div>`;
+    } else if (index == 0) {
+      html += `
+    <div style="margin-left:auto;" class="card-container" >
+      <img  class="card-img" src="./unoCardsImages/UNO-Back.jpg"/>
+    </div>`;
+    } else if (index === comDeck.length - 1) {
+      html += `
+    <div style="margin-right:auto;" class="card-container" >
+      <img  class="card-img" src="./unoCardsImages/UNO-Back.jpg"/>
+    </div>`;
+    } else {
+      html += `
+      <div class="card-container" >
+        <img class="card-img" src="./unoCardsImages/UNO-Back.jpg"/>
+      </div>`;
+    }
   });
   container.innerHTML = html;
 }
@@ -417,7 +454,7 @@ function playerRes(state = "notTaken", playAudio = "false") {
 
   let container = document.getElementById("playerArea");
   let html = "";
-  playerDeck.forEach((card) => {
+  playerDeck.forEach((card, ind) => {
     let src;
     if (card.hasOwnProperty("number")) {
       src = `./unoCardsImages/${card.color}_${card.number}.jpg`;
@@ -426,13 +463,33 @@ function playerRes(state = "notTaken", playAudio = "false") {
     }
     if (playableCards.includes(card)) {
       html += `
-    <div class="card-container">
-      <img id="clickable" onclick="playerCard(event)" data-card-color=${card.color} data-card-number=${card.number} data-card-type="${card.type}" class="card-img" src="${src}" />
+    <div ${
+      playerDeck.length == 1
+        ? 'style="margin-left:auto;margin-right:auto"'
+        : ind == 0
+        ? 'style="margin-left:auto"'
+        : ind == playerDeck.length - 1
+        ? 'style="margin-right:auto"'
+        : "style=''"
+    } class="card-container">
+      <img id="clickable" onclick="playerCard(event)" data-card-color=${
+        card.color
+      } data-card-number=${card.number} data-card-type="${
+        card.type
+      }" class="card-img" src="${src}" />
     </div>
   `;
     } else {
       html += `
-    <div class="card-container" >
+    <div ${
+      playerDeck.length == 1
+        ? 'style="margin-left:auto;margin-right:auto"'
+        : ind == 0
+        ? 'style="margin-left:auto"'
+        : ind == playerDeck.length - 1
+        ? 'style="margin-right:auto"'
+        : "style=''"
+    } class="card-container" >
       <img  class="card-img" src="${src}" />
     </div>
   `;

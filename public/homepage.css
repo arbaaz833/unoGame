@@ -41,6 +41,9 @@ h1 {
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
+#instructionManual {
+  display:none;
+}
 
 .scoreContainer {
   margin: auto;
@@ -137,4 +140,13 @@ small {
   .scoreContainer h3 {
     margin: 0 0;
   }
+}
+
+.styleForIns {
+  width: 80%;
+
+}
+.styleForIns P,li {
+  font-family: sans-serif;
+  text-align: left;
 }
