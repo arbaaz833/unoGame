@@ -162,8 +162,8 @@ function distributeCards() {
   updateCurrCard(currCard[0]);
   if (currCard[0].type == "Wild card4") {
     deckOfCards = againShuffle(finalDeck);
-    distributeCards();
-    return;
+    currCard.splice(0,1);
+    return distributeCards();
   }
   if (currCard[0].type === "Wild card") chooseColor("com", "player");
   playerView();
